@@ -52,8 +52,8 @@ public class PresenceUpdater extends Thread {
     @Override
     public void run() {
         while (true) {
-            int rate = DiscordSRV.config().getInt("StatusUpdateRateInMinutes");
-            if (rate < 1) rate = 1;
+            int rate = DiscordSRV.config().getInt("StatusUpdateRateInSeconds");
+            if (rate < 10) rate = 10;
 
             if (DiscordUtil.getJda() != null) {
                 Dynamic dynamic = DiscordSRV.config().dget("DiscordGameStatus");
@@ -116,7 +116,7 @@ public class PresenceUpdater extends Thread {
             }
 
             try {
-                Thread.sleep(TimeUnit.MINUTES.toMillis(rate));
+                Thread.sleep(TimeUnit.SECONDS.toMillis(rate));
             } catch (InterruptedException ignored) {
                 DiscordSRV.debug(Debug.PRESENCE, "Broke from Status Updater thread: sleep interrupted");
                 return;

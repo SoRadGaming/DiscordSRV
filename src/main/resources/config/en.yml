@@ -134,7 +134,7 @@ UseModernPaperChatEvent: false
 # StatusUpdateRateInMinutes: How frequently to cycle the status
 DiscordGameStatus: ["Minecraft"]
 DiscordOnlineStatus: ONLINE
-StatusUpdateRateInMinutes: 2
+StatusUpdateRateInSeconds: 10
 
 # Chat channel information
 # The chat channel is the text channel that all messages in-game will be sent to and all messages sent
